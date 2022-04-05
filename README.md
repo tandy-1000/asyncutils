@@ -11,4 +11,4 @@ proc ex(e: SyncExample | AsyncExample) {.multisync.}
 proc ex(e: Example) {.fastsync.}
 ```
 
-Thanks to https://github.com/beef331/
+Thanks to [beef](https://github.com/beef331/) for writing the `fastsync` macro
