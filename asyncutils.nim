@@ -64,4 +64,4 @@ runnableExamples:
   Example.setSync(SyncExample)
   Example.setAsync(AsyncExample)
 
-  proc ex(lb: Example) {.fastsync.}
+  proc ex(e: Example) {.fastsync.}
