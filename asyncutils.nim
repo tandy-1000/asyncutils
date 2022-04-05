@@ -51,3 +51,17 @@ macro fastsync*(pdef: untyped): untyped =
     result = pdef.copyNimTree()
     result.params[1][^2] = typ
     result[4] = nnkPragma.newTree(ident"multisync")
+
+runnableExamples:
+  import std/httpclient
+
+  type
+    Example*[T] = ref object
+      http*: T
+    SyncExample* = Example[HttpClient]
+    AsyncExample* = Example[AsyncHttpClient]
+
+  Example.setSync(SyncExample)
+  Example.setAsync(AsyncExample)
+
+  proc ex(lb: Example) {.fastsync.}
